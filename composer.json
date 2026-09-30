@@ -1,7 +1,9 @@
 {
     "name": "schedule-site",
-    "description": "Система умного расписания",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-json": "*"
     }
 }
