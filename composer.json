@@ -1,0 +1,7 @@
+{
+    "name": "schedule-site",
+    "description": "Система умного расписания",
+    "require": {
+        "php": ">=7.4"
+    }
+}
