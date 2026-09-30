@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Умное расписание</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📅</span>
+                <h1>Умное расписание</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-ghost" onclick="showWeekSchedule()">📊 Вся неделя</button>
+                <button class="btn btn-ghost" onclick="openAdmin()">🔐 Админ</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Расписание на завтра -->
+            <section class="schedule-section" id="tomorrowSection">
+                <div class="section-header">
+                    <h2 id="dateTitle">Завтра</h2>
+                    <span class="badge" id="dateBadge"></span>
+                </div>
+                <div class="schedule-grid" id="scheduleGrid">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Загрузка расписания...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Расписание на всю неделю -->
+            <section class="schedule-section hidden" id="weekSection">
+                <div class="section-header">
+                    <h2>Расписание на неделю</h2>
+                    <button class="btn btn-ghost" onclick="hideWeekSchedule()">← Назад</button>
+                </div>
+                <div class="week-grid" id="weekGrid"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Умное расписание © 2026</p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно админ-панели -->
+    <div class="modal-overlay" id="adminModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>🔐 Админ-панель</h3>
+                <button class="modal-close" onclick="closeAdmin()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="adminCode">Код доступа</label>
+                    <input type="password" id="adminCode" placeholder="Введите код доступа..." autocomplete="off">
+                </div>
+                <button class="btn btn-primary btn-full" onclick="checkAdminCode()">Войти</button>
+                <p class="error-msg hidden" id="adminError">❌ Неверный код доступа!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Панель управления расписанием -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal modal-large">
+            <div class="modal-header">
+                <h3>✏️ Редактирование расписания</h3>
+                <button class="modal-close" onclick="closeEdit()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="edit-tabs" id="editTabs"></div>
+                <div class="edit-content" id="editContent"></div>
+                <div class="edit-actions">
+                    <button class="btn btn-primary" onclick="saveSchedule()">💾 Сохранить</button>
+                    <button class="btn btn-warning" onclick="resetSchedule()">🔄 Сбросить</button>
+                    <button class="btn btn-ghost" onclick="closeEdit()">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
