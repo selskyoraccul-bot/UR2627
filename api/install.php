@@ -81,6 +81,6 @@ try {
     
 } catch (Exception $e) {
     jsonResponse(['error' => $e->getMessage()], 500);
-
-строка 83
 }
+
+строки 1-84
