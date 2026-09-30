@@ -1,10 +1,10 @@
 <?php
 // Настройки базы данных Beget
 // Замените на свои данные из панели управления Beget
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'ваш_логин_бд');
-define('DB_USER', 'ваш_логин_бд');
-define('DB_PASS', 'ваш_пароль_бд');
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'railway');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '');
 
 // Код доступа администратора
 define('ADMIN_CODE', '812412njfjKjUERN1UDJ8QDiNDUHEUI1NDJKwhduiqh2ruienjkfhuiQWRH2JK1NFIUO2Q3FH23UHIFNIOGHJ32UI1H');
